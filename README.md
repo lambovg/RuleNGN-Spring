@@ -10,6 +10,6 @@ Rules can be chain with conditioins like
 *  all rules to match
 
 ## Type of rules
-By default all rules are required - so if rule is not fulfield 
+By default RuleNGNG will stop exuection of next rule if previous rule is failed. This behavour can be overriden with `@OptionRule` annotation.
 
 # Diagram
