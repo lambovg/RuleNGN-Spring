@@ -15,3 +15,7 @@ By default RuleNGNG will stop exuection of next rule if previous rule is failed.
 # Diagram
 
 ![RuleNGN](https://github.com/lambovg/RuleNGN-Spring/assets/144920/7218f6f2-2e50-409f-82ef-60405057c151)
+
+![RuleNGN-1](https://github.com/lambovg/RuleNGN-Spring/assets/144920/bc2daecb-6305-4749-acda-59cb501e3587)
+
+![RuleNGN 2](https://github.com/lambovg/RuleNGN-Spring/assets/144920/36d27b01-95f2-496b-9112-dce7b890b9b6)
