@@ -13,7 +13,7 @@ import java.util.Objects;
 
 /**
  * A RuleEngine is a collection of Rules that are evaluated in order.
- * If any of the Rules succeed, the RuleChain exits and get the first successful rul.
+ * If any of the Rules succeed, the RuleChain exits and get the first successful rule.
  *
  * @param <E>
  * @param <R>
