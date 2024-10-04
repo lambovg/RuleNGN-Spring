@@ -1,4 +1,4 @@
-package gl.rulengn;
+package gl.rulengn.annotation;
 
 import java.lang.annotation.*;
 
