@@ -1,13 +1,13 @@
 package gl.rulengn.rule;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class RuleContainerTest {
 
     @Test
-    void appendRule() {
+    void givenRule_whenAppendRule_thenRuleExistsInRuleContainer() {
         RuleContainer<String, Integer> container = new RuleContainer<>();
         Rule<String, Integer> rule = new Rule<>() {
             @Override
@@ -20,15 +20,62 @@ class RuleContainerTest {
                 return false;
             }
         };
-        container.appendRule(rule);
-        assertTrue(container.getRules().contains(rule));
+        assertTrue(container.appendRule(rule).getRules().contains(rule));
     }
 
     @Test
-    void appendRuleWithNull() {
+    void givenNullRule_whenAppendRule_thenThrowsNullPointerException() {
         RuleContainer<String, Integer> container = new RuleContainer<>();
-        Rule<String, Integer> rule = null;
-        container.appendRule(rule);
-        assertNotNull(container.getRules());
+        assertThrows(NullPointerException.class, () -> container.appendRule(null));
+    }
+
+    @Test
+    void givenExistingRule_WhenReplaceRule_ThenOnlyNewRuleExists() {
+        RuleContainer<String, Integer> container = new RuleContainer<>();
+        Rule<String, Integer> oldRule = new Rule<>() {
+            @Override
+            public Integer getResult(Integer result) {
+                return 0;
+            }
+
+            @Override
+            public boolean evaluate(String expression, Integer result) {
+                return false;
+            }
+        };
+        Rule<String, Integer> newRule = new Rule<>() {
+            @Override
+            public Integer getResult(Integer result) {
+                return 1;
+            }
+
+            @Override
+            public boolean evaluate(String expression, Integer result) {
+                return true;
+            }
+        };
+        container.appendRule(oldRule);
+        container.replaceRule(newRule);
+        assertTrue(container.getRules().contains(newRule));
+        assertFalse(container.getRules().contains(oldRule));
+    }
+
+    @Test
+    void givenNewRule_WhenReplaceRule_ThenNewRuleExists() {
+        RuleContainer<String, Integer> container = new RuleContainer<>();
+        Rule<String, Integer> newRule = new Rule<>() {
+            @Override
+            public Integer getResult(Integer result) {
+                return 0;
+            }
+
+            @Override
+            public boolean evaluate(String expression, Integer result) {
+                return false;
+            }
+        };
+        container.replaceRule(newRule);
+        assertEquals(1, container.getRules().size());
+        assertTrue(container.getRules().contains(newRule));
     }
 }
