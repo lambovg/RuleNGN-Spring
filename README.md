@@ -1,6 +1,8 @@
 # RuleNGN-Spring
 RuleNGN for Spring implementation
 
+[![Java CI with Gradle](https://github.com/lambovg/RuleNGN-Spring/actions/workflows/gradle.yml/badge.svg)](https://github.com/lambovg/RuleNGN-Spring/actions/workflows/gradle.yml)
+
 # Description 
 RuleNGN is a impementation of RuleChain design pattern. It provides ability to if/elese code blocks in class implementation as rules.
 
